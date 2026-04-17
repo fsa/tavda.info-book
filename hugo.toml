@@ -1,0 +1,7 @@
+baseURL = 'https://lib.tavda.info/'
+locale = 'ru-ru'
+title = 'Библиотека Тавда.инфо'
+theme = 'hugo-book'
+
+[params]
+  BookSection = '*'
