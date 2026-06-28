@@ -1,14 +1,21 @@
 {{/* Cross-section navigation */}}
 {{ $currentPage := . }}
 
+{{/* Find which top-level section this page belongs to */}}
+{{ $bookSection := "" }}
+{{ range .Site.Sections }}
+  {{ if or (eq $currentPage .) ($currentPage.IsDescendant .) }}
+    {{ $bookSection = .Section }}
+  {{ end }}
+{{ end }}
+
 {{/* Get all pages in this book, sorted by weight */}}
-{{ $allPages := where .Site.RegularPages "Section" "legends" }}
+{{ $allPages := where .Site.RegularPages "Section" $bookSection }}
 {{ $sortedPages := sort $allPages "Weight" }}
 
 {{/* Find current page index */}}
 {{ $prevPage := "" }}
 {{ $nextPage := "" }}
-{{ $index := 0 }}
 {{ $foundIndex := -1 }}
 {{ range $i, $page := $sortedPages }}
   {{ if eq $page.RelPermalink $currentPage.RelPermalink }}
