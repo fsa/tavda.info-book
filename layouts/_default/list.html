@@ -20,7 +20,9 @@
     </div>
   {{ else }}
     <h1>{{ .Title }}</h1>
-    {{ .Content }}
+    <div class="prose">
+      {{ .Content }}
+    </div>
     {{ if .Pages }}
       <div class="pages-list">
         {{ range .Pages }}
