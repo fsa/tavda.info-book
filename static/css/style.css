@@ -258,6 +258,7 @@ body {
 .prose {
   line-height: 1.8;
   text-align: justify;
+  overflow-x: hidden;
 }
 
 .prose h2 {
@@ -274,6 +275,7 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
+  display: block;
 }
 
 @media (max-width: 768px) {
