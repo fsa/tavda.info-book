@@ -238,6 +238,7 @@ body {
 
 .prose {
   line-height: 1.8;
+  text-align: justify;
 }
 
 .prose h2 {
@@ -262,6 +263,15 @@ body {
   margin: 1rem 0;
   color: #555;
   font-style: italic;
+}
+
+.chapter-nav-top {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding-top: 0;
+  border-top: none;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .chapter-nav {

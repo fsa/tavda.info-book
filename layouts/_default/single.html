@@ -1,6 +1,14 @@
 {{ define "main" }}
 <article class="article">
   <h1>{{ .Title }}</h1>
+  <nav class="chapter-nav chapter-nav-top">
+    {{ if .NextInSection }}
+      <a href="{{ .NextInSection.Permalink }}" class="prev-link">&larr; {{ .NextInSection.Title }}</a>
+    {{ end }}
+    {{ if .PrevInSection }}
+      <a href="{{ .PrevInSection.Permalink }}" class="next-link">{{ .PrevInSection.Title }} &rarr;</a>
+    {{ end }}
+  </nav>
   <div class="prose">
     {{ .Content }}
   </div>
