@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #2c3e50;
-  --secondary-color: #34495e;
+  --primary-color: #00572b;
+  --secondary-color: #007a3d;
   --background-color: #fff;
   --text-color: #333;
   --border-color: #ddd;
@@ -159,6 +159,22 @@ body {
   font-size: 1.5rem;
   color: var(--primary-color);
   text-decoration: none;
+}
+
+.back-to-main {
+  margin-left: auto;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.back-to-main:hover {
+  background: var(--primary-color);
+  color: #fff;
 }
 
 .article {
