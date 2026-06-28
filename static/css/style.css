@@ -283,6 +283,24 @@ body {
     width: 100%;
     height: auto;
   }
+
+  .chapter-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .prev-link,
+  .next-link {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .chapter-nav .next-link {
+    margin-left: 0;
+  }
 }
 
 .prose blockquote {
