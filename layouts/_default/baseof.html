@@ -26,9 +26,9 @@
             </ul>
           {{ else }}
             {{ $currentPage := . }}
-            {{ $book := "" }}
+            {{ $book := false }}
             {{ range .Site.Sections }}
-              {{ if $currentPage.IsDescendant . }}
+              {{ if or (eq $currentPage .) ($currentPage.IsDescendant .) }}
                 {{ $book = . }}
               {{ end }}
             {{ end }}
