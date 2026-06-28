@@ -1,0 +1,32 @@
+{{/* Cross-section navigation */}}
+{{ $currentPage := . }}
+
+{{/* Get all pages in this book, sorted by weight */}}
+{{ $allPages := where .Site.RegularPages "Section" "legends" }}
+{{ $sortedPages := sort $allPages "Weight" }}
+
+{{/* Find current page index */}}
+{{ $prevPage := "" }}
+{{ $nextPage := "" }}
+{{ $index := 0 }}
+{{ $foundIndex := -1 }}
+{{ range $i, $page := $sortedPages }}
+  {{ if eq $page.RelPermalink $currentPage.RelPermalink }}
+    {{ $foundIndex = $i }}
+  {{ end }}
+{{ end }}
+
+{{/* Get prev and next by index */}}
+{{ if gt $foundIndex 0 }}
+  {{ $prevPage = index $sortedPages (sub $foundIndex 1) }}
+{{ end }}
+{{ if lt $foundIndex (sub (len $sortedPages) 1) }}
+  {{ $nextPage = index $sortedPages (add $foundIndex 1) }}
+{{ end }}
+
+{{ if $prevPage }}
+  <a href="{{ $prevPage.Permalink }}" class="prev-link">&larr; {{ $prevPage.Title }}</a>
+{{ end }}
+{{ if $nextPage }}
+  <a href="{{ $nextPage.Permalink }}" class="next-link">{{ $nextPage.Title }} &rarr;</a>
+{{ end }}
