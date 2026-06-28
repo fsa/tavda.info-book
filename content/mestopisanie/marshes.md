@@ -2,7 +2,6 @@
 title: Болота
 weight: 5
 ---
-## Болота
 
 ![Чернушка (фото В. Ермолаева)](/mestopisanie/cherhushka.jpg)
 

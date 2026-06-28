@@ -2,7 +2,6 @@
 title: Реки
 weight: 3
 ---
-## Реки
 
 ![Река Карабашка (фото В. Ермолаева)](/mestopisanie/karabashka.jpg)
 

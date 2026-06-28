@@ -2,7 +2,6 @@
 title: Климат
 weight: 2
 ---
-## Климат
 
 ![Деревня Кошуки (фото В. Ермолаева)](/mestopisanie/koshuki.jpg)
 

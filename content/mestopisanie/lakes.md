@@ -2,7 +2,6 @@
 title: Озёра
 weight: 4
 ---
-## Озёра
 
 ![Пелым](/mestopisanie/pelym.jpg)
 

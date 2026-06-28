@@ -2,7 +2,6 @@
 title: Почвы
 weight: 6
 ---
-## Почвы
 
 ![Дорога (фото В. Ермолаева)](/mestopisanie/doroga.jpg)
 
