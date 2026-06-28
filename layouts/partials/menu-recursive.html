@@ -1,0 +1,16 @@
+{{ range .Pages }}
+  {{ if .IsSection }}
+    <li class="menu-item menu-section{{ if eq . $.currentPage }} active{{ end }}">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ if .Pages }}
+        <ul class="menu-sublist">
+          {{ partial "menu-recursive.html" (dict "Pages" .Pages "currentPage" $.currentPage) }}
+        </ul>
+      {{ end }}
+    </li>
+  {{ else }}
+    <li class="menu-item{{ if eq . $.currentPage }} active{{ end }}">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+  {{ end }}
+{{ end }}

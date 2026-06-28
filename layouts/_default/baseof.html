@@ -28,11 +28,7 @@
             {{ $currentSection := .CurrentSection }}
             <h3 class="menu-heading">{{ $currentSection.Title }}</h3>
             <ul class="menu-list">
-              {{ range $currentSection.Pages }}
-                <li class="menu-item{{ if eq . $currentSection }} active{{ end }}">
-                  <a href="{{ .Permalink }}">{{ .Title }}</a>
-                </li>
-              {{ end }}
+              {{ partial "menu-recursive.html" (dict "Pages" $currentSection.Pages "currentPage" .) }}
             </ul>
             <a href="{{ .Site.BaseURL }}" class="back-link">&larr; ко всем книгам</a>
           {{ end }}
