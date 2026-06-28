@@ -25,12 +25,20 @@
               {{ end }}
             </ul>
           {{ else }}
-            {{ $currentSection := .CurrentSection }}
-            <h3 class="menu-heading">{{ $currentSection.Title }}</h3>
+            {{ $currentPage := . }}
+            {{ $book := "" }}
+            {{ range .Site.Sections }}
+              {{ if $currentPage.IsDescendant . }}
+                {{ $book = . }}
+              {{ end }}
+            {{ end }}
+            {{ if $book }}
+            <h3 class="menu-heading">{{ $book.Title }}</h3>
             <ul class="menu-list">
-              {{ partial "menu-recursive.html" (dict "Pages" $currentSection.Pages "currentPage" .) }}
+              {{ partial "menu-recursive.html" (dict "Pages" $book.Pages "currentPage" $currentPage) }}
             </ul>
             <a href="{{ .Site.BaseURL }}" class="back-link">&larr; ко всем книгам</a>
+            {{ end }}
           {{ end }}
         </nav>
       </div>
