@@ -281,6 +281,13 @@ body {
   font-style: italic;
 }
 
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin: 2rem 0;
+}
+
 .chapter-nav-top {
   margin-top: 0;
   margin-bottom: 2rem;
