@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+  <div class="site-container">
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <div class="brand">
+          <a href="{{ .Site.BaseURL }}" class="brand-link">{{ .Site.Title }}</a>
+        </div>
+        <nav class="menu">
+          {{ if .IsHome }}
+            <ul class="menu-list">
+              {{ range .Site.Sections }}
+                {{ if ne .Section "" }}
+                  <li class="menu-item">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                  </li>
+                {{ end }}
+              {{ end }}
+            </ul>
+          {{ else }}
+            {{ $currentSection := .CurrentSection }}
+            <h3 class="menu-heading">{{ $currentSection.Title }}</h3>
+            <ul class="menu-list">
+              {{ range $currentSection.Pages }}
+                <li class="menu-item{{ if eq . $currentSection }} active{{ end }}">
+                  <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </li>
+              {{ end }}
+            </ul>
+            <a href="{{ .Site.BaseURL }}" class="back-link">&larr; ко всем книгам</a>
+          {{ end }}
+        </nav>
+      </div>
+    </aside>
+    <main class="content">
+      <header class="header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Меню">&#9776;</button>
+        <a href="{{ .Site.BaseURL }}" class="site-title">{{ .Site.Title }}</a>
+      </header>
+      {{ template "main" . }}
+      <footer class="footer">
+        <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.querySelector('.site-container').classList.toggle('menu-open');
+    });
+  </script>
+</body>
+</html>

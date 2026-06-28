@@ -1,0 +1,36 @@
+{{ define "main" }}
+<article class="article">
+  {{ if .IsHome }}
+    <h1>{{ .Title }}</h1>
+    <div class="books-grid">
+      {{ range .Site.Sections }}
+        {{ if ne .Section "" }}
+          <div class="book-card">
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            {{ with .Description }}<p class="book-description">{{ . }}</p>{{ end }}
+            {{ with .Params.book_info }}
+              <div class="book-meta">
+                {{ with .author }}<span class="book-author">{{ . }}</span>{{ end }}
+                {{ with .year }}<span class="book-year">{{ . }}</span>{{ end }}
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ else }}
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    {{ if .Pages }}
+      <div class="pages-list">
+        {{ range .Pages }}
+          <div class="page-item">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  {{ end }}
+</article>
+{{ end }}
